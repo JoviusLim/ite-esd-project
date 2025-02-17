@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESD_Jovius_Project", "ESD_Jovius_Project.csproj", "{2363C295-1831-0C48-C5D3-F0E802326357}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2363C295-1831-0C48-C5D3-F0E802326357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2363C295-1831-0C48-C5D3-F0E802326357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2363C295-1831-0C48-C5D3-F0E802326357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2363C295-1831-0C48-C5D3-F0E802326357}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE95BC01-21F1-47E2-B724-096EDA849369}
+	EndGlobalSection
+EndGlobal

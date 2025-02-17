@@ -1,0 +1,6 @@
+@ESD_Jovius_Project_HostAddress = http://localhost:5239
+
+GET {{ESD_Jovius_Project_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
