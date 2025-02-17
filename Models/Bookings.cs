@@ -5,7 +5,7 @@ namespace ESD_Jovius_Project.Models
     public class Booking
     {
         [Key]
-        public required int BookingId { get; set; }
+        public int BookingId { get; set; }
         [StringLength(255)]
         public required string FacilityDescription { get; set; }
         public required DateTime BookingDateFrom { get; set; }

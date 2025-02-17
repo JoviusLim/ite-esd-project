@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using ESD_Jovius_Project.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -101,6 +102,13 @@ namespace ESD_Jovius_Project.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
             }
 
+            var userRole = UserRoles.Member;
+
+            if (!await _roleManager.RoleExistsAsync(userRole))
+            {
+                await _roleManager.CreateAsync(new IdentityRole(userRole));
+            }
+
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
 
@@ -132,9 +140,9 @@ namespace ESD_Jovius_Project.Controllers
                 await _roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
             }
 
-            if (!await _roleManager.RoleExistsAsync(UserRoles.User))
+            if (!await _roleManager.RoleExistsAsync(UserRoles.Member))
             {
-                await _roleManager.CreateAsync(new IdentityRole(UserRoles.User));
+                await _roleManager.CreateAsync(new IdentityRole(UserRoles.Member));
             }
 
             if (await _roleManager.RoleExistsAsync(UserRoles.Admin))
@@ -145,5 +153,28 @@ namespace ESD_Jovius_Project.Controllers
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
 
+        [Authorize(Roles = UserRoles.Admin)]
+        [HttpPut]
+        [Route("update-roles")]
+        public async Task<IActionResult> UpdateRoles([FromBody] UpdateRolesModel model)
+        {
+            var userExists = await _userManager.FindByNameAsync(model.Username ?? string.Empty);
+            if (userExists == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User does not exists!" });
+            }
+
+            var userRoles = await _userManager.GetRolesAsync(userExists);
+            var userRole = userRoles.FirstOrDefault();
+
+            if (userRole != null)
+            {
+                await _userManager.RemoveFromRoleAsync(userExists, userRole);
+            }
+
+            await _userManager.AddToRoleAsync(userExists, model.Role ?? string.Empty);
+
+            return Ok(new Response { Status = "Success", Message = "User roles updated successfully!" });
+        }
     }
 }
