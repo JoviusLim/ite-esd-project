@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ESD_Jovius_Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6dd69d1222b83e8917168e89ac0db6f1475bef45")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b16b84fa2597fa66f53462bd3db2783c35a49e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ESD_Jovius_Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ESD_Jovius_Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
