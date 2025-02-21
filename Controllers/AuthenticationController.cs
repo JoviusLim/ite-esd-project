@@ -102,8 +102,8 @@ namespace ESD_Jovius_Project.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
             }
 
-            var userRole = UserRoles.Member;
-
+            var userRole = UserRoles.User;
+    
             if (!await _roleManager.RoleExistsAsync(userRole))
             {
                 await _roleManager.CreateAsync(new IdentityRole(userRole));
