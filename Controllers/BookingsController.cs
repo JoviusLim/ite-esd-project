@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ESD_Jovius_Project.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = UserRoles.Member + "," + UserRoles.Admin)]
     [Route("api/bookings")]
     [ApiController]
 

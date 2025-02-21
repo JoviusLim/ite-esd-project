@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/ESD_Jovius_Project.props" />
+</Project>

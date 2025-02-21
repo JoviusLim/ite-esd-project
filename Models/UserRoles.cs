@@ -4,5 +4,6 @@ namespace ESD_Jovius_Project.Models
     {
         public const string Admin = "Admin";
         public const string Member = "Member";
+        public const string User = "User";
     }
 }
